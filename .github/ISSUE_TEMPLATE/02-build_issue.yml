@@ -1,0 +1,67 @@
+name: 🔨 Build / install issue
+description: Failure when building from source, installing the .deb/.rpm packages, or producing the SDK installer.
+title: "[build] <short summary>"
+labels: ["build", "needs-triage"]
+body:
+  - type: dropdown
+    id: stage
+    attributes:
+      label: Where it breaks
+      options:
+        - "`make preparation` / dependency fetch"
+        - SDK build
+        - enclave runtime build
+        - "Installer (.bin) generation"
+        - "Package build (.deb / .rpm)"
+        - Install of prebuilt packages
+        - Cross-compile / container build
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: SGX tag / branch / commit
+      placeholder: "sgx_2.27 / main / commit abc1234"
+    validations:
+      required: true
+
+  - type: input
+    id: distro
+    attributes:
+      label: Build host (distro + version)
+      placeholder: "Ubuntu 22.04 / CentOS Stream 9 / Anolis 8.10"
+    validations:
+      required: true
+
+  - type: input
+    id: toolchain
+    attributes:
+      label: Toolchain versions
+      description: gcc/clang, binutils, make, cmake, openssl as applicable.
+      placeholder: "gcc 11.4.0, binutils 2.38, make 4.3, openssl 3.0.13"
+    validations:
+      required: true
+
+  - type: textarea
+    id: command
+    attributes:
+      label: Exact command(s) executed
+      render: shell
+    validations:
+      required: true
+
+  - type: textarea
+    id: error
+    attributes:
+      label: Error output
+      description: Paste the failing lines and ~30 lines of context. Trim unrelated noise.
+      render: shell
+    validations:
+      required: true
+
+  - type: textarea
+    id: extra
+    attributes:
+      label: Additional context
+      description: Proxy/offline build? Container image? Anything non-standard about the environment?

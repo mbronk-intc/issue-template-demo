@@ -1,0 +1,30 @@
+name: ✨ Feature request
+description: Propose a new capability, API, sample, or workflow improvement.
+title: "[feat] <short summary>"
+labels: ["enhancement", "needs-triage"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem / motivation
+      description: What user-visible problem does this solve? Who is affected?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: Scope / impact
+      description: Components touched (PSW, SDK, AEs, DCAP, samples, tools), ABI/compat implications, expected effort.

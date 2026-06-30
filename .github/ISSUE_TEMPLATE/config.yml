@@ -1,0 +1,18 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 🔒 Security vulnerability
+    url: https://www.intel.com/content/www/us/en/security-center/vulnerability-handling-guidelines.html
+    about: >
+      Please report any suspect security vulnerabilities to Intel Security Center; see [SECURITY.md]
+  - name: 💬 Question / discussion
+    url: https://community.intel.com/t5/Intel-Software-Guard-Extensions/bd-p/software-guard-extensions
+    about: Use the community forums for usage questions, design discussions, and general Q&A.
+  - name: 📚 Enabling documentation
+    url: https://cc-enabling.trustedservices.intel.com/
+    about: Intel® Confidential Computing Documentation.
+  - name: 🧭 Other Intel® SGX repos
+    url: https://github.com/intel/confidential-computing.sgx
+    about: >
+      This repository tracks the SGX SDK only. For PSW, AESM, Architectural Enclaves,
+      install/packaging of the full stack, or cross-component questions, start at the
+      SGX hub repo.
