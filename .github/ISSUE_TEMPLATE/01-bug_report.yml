@@ -57,7 +57,7 @@ body:
     id: repro
     attributes:
       label: Steps to reproduce
-      description: Minimal, deterministic steps plus the smallest code / EDL snippet that triggers it — the #1 thing that gets a bug fixed fast.
+      description: Minimal, deterministic steps plus the smallest code / EDL snippet that triggers it — nothing gets a bug fixed faster.
       placeholder: |
         1. ...
         2. ...
