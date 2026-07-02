@@ -16,10 +16,10 @@ body:
     attributes:
       label: Affected component
       options:
-        - Trusted (in-enclave) library — tRTS / tlibc / tlibcxx / tcrypto / tseal
-        - Untrusted host library / enclave runtime — uRTS / enclave_common
+        - Trusted (in-enclave) library — tRTS / tlibc / tlibcxx / tcrypto / tseal / …
+        - Untrusted host library / enclave runtime
         - Public header / API / EDL
-        - Tools (sgx_sign, sgx_edger8r, sgx-gdb, ...)
+        - Tools — sgx_sign, sgx_edger8r, sgx-gdb, …
         - Other / not sure
     validations:
       required: true
@@ -57,7 +57,7 @@ body:
     id: repro
     attributes:
       label: Steps to reproduce
-      description: Minimal, deterministic steps + the smallest code / EDL snippet that triggers it. No repro is the #1 reason a bug stalls.
+      description: Minimal, deterministic steps plus the smallest code / EDL snippet that triggers it — the #1 thing that gets a bug fixed fast.
       placeholder: |
         1. ...
         2. ...
@@ -68,7 +68,7 @@ body:
     id: expected
     attributes:
       label: Expected behavior
-      description: Skip if it's obvious (e.g. "shouldn't crash").
+      placeholder: Skip if it's obvious (e.g. "shouldn't crash").
 
   - type: textarea
     id: actual
