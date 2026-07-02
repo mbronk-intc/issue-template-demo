@@ -7,8 +7,8 @@ body:
     attributes:
       value: |
         Thanks for filing — fill in what you can; `n/a` is fine. Not sure this is the right form?
-        - Build or install failure → **Build / install issue**.
-        - A `SampleCode/` sample → **Sample-code issue**.
+        - Build or install failure → [Build / install issue](issues/new?template=02-build_issue.yml).
+        - A `SampleCode/` sample → [Sample-code issue](issues/new?template=03-sample_issue.yml).
         - A "how do I…" question → the [community forum](https://community.intel.com/t5/Intel-Software-Guard-Extensions/bd-p/software-guard-extensions).
 
   - type: dropdown
