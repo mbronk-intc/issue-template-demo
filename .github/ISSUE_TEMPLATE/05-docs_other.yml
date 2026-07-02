@@ -6,10 +6,8 @@ body:
   - type: markdown
     attributes:
       value: |
-        Use this for a documentation fix, or as a catch-all when nothing else fits
-        (CI, repo hygiene, dependencies, release process, a scope question, ...).
-        Usage / how-to questions belong on the
-        [community forum](https://community.intel.com/t5/Intel-Software-Guard-Extensions/bd-p/software-guard-extensions).
+        Use this for a documentation fix, or as a catch-all when nothing else fits (CI, repo hygiene, dependencies, release process, a scope question, ...).
+        Usage / how-to questions belong on the [community forum](https://community.intel.com/t5/Intel-Software-Guard-Extensions/bd-p/software-guard-extensions).
         Maintainers may relabel to a more specific category during triage.
 
   - type: input
