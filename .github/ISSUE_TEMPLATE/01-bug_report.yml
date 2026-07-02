@@ -1,23 +1,25 @@
-name: 🐞 Bug report (runtime)
-description: Report incorrect behavior of the SDK runtime, an enclave sample at runtime.
+name: 🐞 Runtime / API bug
+description: A crash or wrong behavior in the SDK libraries, the enclave runtime (uRTS / enclave_common), or a running enclave.
 title: "[bug] <short summary>"
 labels: ["bug", "needs-triage"]
 body:
   - type: markdown
     attributes:
       value: |
-        Thanks for taking the time to file a bug. Please fill in as much as you can.
-        For build/install failures, use the **Build / install issue** template instead.
+        Thanks for filing — fill in what you can; `n/a` is fine. Not sure this is the right form?
+        - Build or install failure → **Build / install issue**.
+        - A `SampleCode/` sample → **Sample-code issue**.
+        - A "how do I…" question → the [community forum](https://community.intel.com/t5/Intel-Software-Guard-Extensions/bd-p/software-guard-extensions).
 
   - type: dropdown
     id: component
     attributes:
       label: Affected component
       options:
-        - SDK (package, API, libraries)
-        - Enclave runtime (uRTS, enclave common)
-        - Sample code
-        - Tools (sgx_sign, sgx_edger8r, sgx_create_signdata, ...)
+        - Trusted (in-enclave) library — tRTS / tlibc / tlibcxx / tcrypto / tseal
+        - Untrusted host library / enclave runtime — uRTS / enclave_common
+        - Public header / API / EDL
+        - Tools (sgx_sign, sgx_edger8r, sgx-gdb, ...)
         - Other / not sure
     validations:
       required: true
@@ -25,38 +27,29 @@ body:
   - type: input
     id: version
     attributes:
-      label: SGX release / tag / commit
-      description: Output of `git describe --tags --always`, or the release tag (e.g. `sgx_2.27`).
+      label: SGX SDK release / tag / commit
+      description: "[Prebuilt Intel binary](https://download.01.org/intel-sgx/sgx-linux/)? The release is enough. Built it yourself? Give the commit (`git describe --tags --always`) and say so."
       placeholder: "sgx_2.27 (commit abc1234)"
     validations:
       required: true
 
-  - type: input
-    id: distro
+  - type: dropdown
+    id: mode
     attributes:
-      label: OS distribution and version
-      placeholder: "Ubuntu 22.04.4 / RHEL 9.4 / Anolis 8 / ..."
+      label: Mode
+      description: HW and simulation often behave differently.
+      options:
+        - Hardware
+        - Simulation (SGX_MODE=SIM)
+        - Don't know
     validations:
       required: true
 
   - type: input
-    id: kernel
+    id: environment
     attributes:
-      label: Kernel version
-      description: Output of `uname -r`.
-      placeholder: "6.5.0-35-generic"
-    validations:
-      required: false
-
-  - type: dropdown
-    id: hw
-    attributes:
-      label: SGX hardware mode
-      options:
-        - HW mode, FLC capable
-        - HW mode, non-FLC (legacy)
-        - Simulation mode
-        - Don't know
+      label: OS and kernel
+      placeholder: "Ubuntu 22.04.4, kernel 6.5.0-35-generic"
     validations:
       required: true
 
@@ -64,12 +57,10 @@ body:
     id: repro
     attributes:
       label: Steps to reproduce
-      description: Minimal, deterministic steps. Include exact commands.
+      description: Minimal, deterministic steps + the smallest code / EDL snippet that triggers it. No repro is the #1 reason a bug stalls.
       placeholder: |
         1. ...
         2. ...
-        3. ...
-      render: shell
     validations:
       required: true
 
@@ -77,26 +68,23 @@ body:
     id: expected
     attributes:
       label: Expected behavior
-    validations:
-      required: true
+      description: Skip if it's obvious (e.g. "shouldn't crash").
 
   - type: textarea
     id: actual
     attributes:
       label: Actual behavior
-      description: Include the failing SGX status code (e.g. `SGX_ERROR_*`) if any.
+      description: Include the SGX status code (`SGX_ERROR_*`); for a crash, a backtrace (`sgx-gdb`) or core dump. Paste text rather than screenshots so it stays searchable.
     validations:
       required: true
 
   - type: textarea
-    id: logs
+    id: details
     attributes:
-      label: Logs / output
-      description: AESM logs (`/var/log/aesmd.log`), dmesg around the failure, app stderr. Redact anything sensitive.
-      render: shell
-
-  - type: textarea
-    id: extra
-    attributes:
-      label: Additional context
-      description: Anything else relevant (workarounds tried, related issues, hypothesis).
+      label: Anything else? (logs, links, screenshots)
+      description: |
+        Drag logs, screenshots, or files straight in, and link related issues (`#123`). Redact secrets. A few things that often help:
+        - Memory / threading → `Enclave.config.xml` `HeapMaxSize` / `StackMaxSize` / `TCSNum`.
+        - Sealing broke after an upgrade → did the SDK version, CPU, or `MRSIGNER` change?
+        - Attestation → DCAP or EPID?
+        - Legacy (non-FLC) launch control? Uncommon — mention it.

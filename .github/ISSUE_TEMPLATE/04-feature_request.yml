@@ -27,4 +27,4 @@ body:
     id: scope
     attributes:
       label: Scope / impact
-      description: Components touched (PSW, SDK, AEs, DCAP, samples, tools), ABI/compat implications, expected effort.
+      description: Which parts of this repo it touches (trusted/untrusted libraries, headers, tools, samples) and any ABI / backward-compat impact. Link related issues (`#123`) or prior discussion.
