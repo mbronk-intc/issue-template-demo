@@ -40,7 +40,7 @@ jobs:
           days-before-close: 3
           stale-issue-label: 'stale'
           stale-pr-label: 'stale'
-          exempt-issue-labels: needs-more-info,pinned,security,blocked,help wanted,good first issue,bug
+          exempt-issue-labels: needs-more-info,pinned,security,blocked,help wanted,good first issue
           exempt-pr-labels: needs-more-info,pinned,security,blocked,help wanted,awaiting-approval,work-in-progress,awaiting-review
           start-date: '2026-06-01T00:00:00Z'
           exempt-all-milestones: true
