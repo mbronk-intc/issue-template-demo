@@ -6,9 +6,10 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thanks for filing — fill in what you can; `n/a` is fine.
-
-        <sub>**Not sure this is the right form?** &nbsp; Build / install failure → 🔨 Build / install issue &nbsp;·&nbsp; a `SampleCode/` sample → 🧩 Sample-code issue &nbsp;·&nbsp; a "how do I…" question → the [community forum](https://community.intel.com/t5/Intel-Software-Guard-Extensions/bd-p/software-guard-extensions).</sub>
+        Thanks for filing — fill in what you can; `n/a` is fine. Not sure this is the right form?
+        - Build or install failure → **🔨 Build / install issue**.
+        - A `SampleCode/` sample → **🧩 Sample-code issue**.
+        - A "how do I…" question → the [community forum](https://community.intel.com/t5/Intel-Software-Guard-Extensions/bd-p/software-guard-extensions).
 
   - type: dropdown
     id: component
