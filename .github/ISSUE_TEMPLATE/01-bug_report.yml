@@ -86,5 +86,5 @@ body:
         Drag logs, screenshots, or files straight in, and link related issues (`#123`). Redact secrets. A few things that often help:
         - Memory / threading → `Enclave.config.xml` `HeapMaxSize` / `StackMaxSize` / `TCSNum`.
         - Sealing broke after an upgrade → did the SDK version, CPU, or `MRSIGNER` change?
-        - Attestation → DCAP or EPID?
+        - Attestation → in-process quoting or out-of-process via the AESM?
         - Legacy (non-FLC) launch control? Uncommon — mention it.
